@@ -446,13 +446,8 @@ function ShopContent() {
         return filteredProducts.slice(0, visibleCount);
     }, [filteredProducts, visibleCount]);
 
-    if (isLoading && !allProducts.length) {
-        return (
-            <div className="bg-white min-h-screen flex items-center justify-center">
-                <div className="w-12 h-12 border-4 border-salmon border-t-transparent rounded-full animate-spin"></div>
-            </div>
-        );
-    }
+    // Page loads immediately, showing header banner and category slider right away.
+    // Product grid shows a luxury shimmer skeleton while fetching GraphQL nodes.
 
     return (
         <div className="bg-white min-h-screen pb-20">
@@ -551,7 +546,18 @@ function ShopContent() {
                     </aside>
 
                     <main className="flex-1">
-                        {filteredProducts.length > 0 ? (
+                        {isLoading && !allProducts.length ? (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+                                {[...Array(9)].map((_, i) => (
+                                    <div key={i} className="animate-pulse flex flex-col space-y-4 bg-gray-50 p-4 rounded-2xl border border-gray-100">
+                                        <div className="bg-gray-200 aspect-square rounded-xl w-full"></div>
+                                        <div className="h-4 bg-gray-200 rounded w-3/4"></div>
+                                        <div className="h-3 bg-gray-200 rounded w-1/2"></div>
+                                        <div className="h-5 bg-gray-200 rounded w-1/3 pt-2"></div>
+                                    </div>
+                                ))}
+                            </div>
+                        ) : filteredProducts.length > 0 ? (
                             <div className="space-y-16">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
                                     {slicedProducts.map((product) => (
