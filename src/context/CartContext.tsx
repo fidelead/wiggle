@@ -22,7 +22,7 @@ interface CartContextType {
     discount: number;
     couponCode: string;
     total: number;
-    addToCart: (item?: Partial<CartItem>) => void;
+    addToCart: (item?: any) => void;
     removeFromCart: (id: string) => void;
     updateQuantity: (id: string, delta: number) => void;
     applyCoupon: (code: string) => boolean;
@@ -82,8 +82,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
         }
     }, [items, couponCode, isLoaded]);
 
-    const addToCart = (newItem?: Partial<CartItem>) => {
-        if (!newItem || !newItem.name) {
+    const addToCart = (newItem?: any) => {
+        if (!newItem || !newItem.name || typeof newItem.preventDefault === 'function') {
             // Generic add from product card default
             setItems(prev => {
                 const existing = prev.find(i => i.id === "ownat-classic-duck-4kg");
