@@ -51,10 +51,17 @@ export default function VideoCategoriesSection() {
                             {/* Autoplay Video Background */}
                             <div className="absolute inset-0 w-full h-full">
                                 <video
+                                    ref={(el) => {
+                                        if (el) {
+                                            el.muted = true;
+                                            el.play().catch(() => {});
+                                        }
+                                    }}
                                     autoPlay
                                     muted
                                     loop
                                     playsInline
+                                    preload="auto"
                                     poster={cat.poster}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 >

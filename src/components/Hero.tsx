@@ -110,14 +110,24 @@ export default function Hero() {
                     >
                         {current.type === 'video' && current.video ? (
                             <video
+                                ref={(el) => {
+                                    if (el) {
+                                        el.muted = true;
+                                        el.play().catch(() => {});
+                                    }
+                                }}
                                 autoPlay
                                 muted
                                 loop
                                 playsInline
+                                preload="auto"
                                 key={current.video}
                                 className="absolute inset-0 w-full h-full object-cover"
                                 poster={current.image}
                             >
+                                {current.mobileVideo && (
+                                    <source src={current.mobileVideo} media="(max-width: 768px)" type="video/mp4" />
+                                )}
                                 <source src={current.video} type="video/mp4" />
                             </video>
                         ) : (
