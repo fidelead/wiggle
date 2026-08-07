@@ -109,27 +109,29 @@ export default function Hero() {
                         transition={{ duration: 1 }}
                     >
                         {current.type === 'video' && current.video ? (
-                            <video
-                                ref={(el) => {
-                                    if (el) {
-                                        el.muted = true;
-                                        el.play().catch(() => {});
-                                    }
-                                }}
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                preload="auto"
-                                key={current.video}
-                                className="absolute inset-0 w-full h-full object-cover"
-                                poster={current.image}
+                            <div 
+                                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                                style={{ backgroundImage: `url("${current.image}")` }}
                             >
-                                {current.mobileVideo && (
-                                    <source src={current.mobileVideo} media="(max-width: 768px)" type="video/mp4" />
-                                )}
-                                <source src={current.video} type="video/mp4" />
-                            </video>
+                                <video
+                                    ref={(el) => {
+                                        if (el) {
+                                            el.muted = true;
+                                            el.play().catch(() => {});
+                                        }
+                                    }}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    preload="auto"
+                                    key={current.video}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                    poster={current.image}
+                                >
+                                    <source src={current.video} type="video/mp4" />
+                                </video>
+                            </div>
                         ) : (
                             <div
                                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
