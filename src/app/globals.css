@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #2A2A2A;
+
+  /* Wiggle Luxury Palette (Placeholders based on ref) */
+  --color-brand-salmon: #EFA899;
+  /* The pinkish/salmon color */
+  --color-brand-sage: #5D8A80;
+  /* The green/sage color */
+  --color-brand-cream: #FDFCF8;
+  /* Off-white background */
+  --color-brand-dark: #1A1A1A;
+  /* Footer/Text dark */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-salmon: var(--color-brand-salmon);
+  --color-sage: var(--color-brand-sage);
+  --color-cream: var(--color-brand-cream);
+  --color-dark: var(--color-brand-dark);
+
+  /* New Admin Palette */
+  --color-wiggle-brand: #EFA899;
+  --color-wiggle-dark: #0F172A;
+
+  --font-serif: var(--font-domine);
+
+  --font-sans: var(--font-lato);
+}
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  /* Prevent horizontal scroll globally */
+  width: 100%;
+}
+
+/* Global Responsive Resets */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Global Safety Padding for content wrappers if needed, 
+   but since Next.js uses specific layouts, we often handle this in page specific containers.
+   However, user asked for global safety padding. We can apply it to a utility class or 
+   ensure the main wrapper has it. For now, enforcing max-width on typical containers. */
+.container-safety {
+  padding-inline: 16px;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-domine), "Times New Roman", serif !important;
+  overflow-wrap: break-word;
+  /* Prevent text overflow */
+}

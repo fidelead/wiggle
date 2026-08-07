@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "IMPERMEABLE BABORD",
+        "price": 109,
+        "category": "Ropa",
+        "image": "/featured-raincoat.png"
+    },
+    {
+        "id": 2,
+        "name": "ARNÉS CHAQUETA JAKE",
+        "price": 93,
+        "category": "Paseo",
+        "image": "/featured-harness.png"
+    },
+    {
+        "id": 3,
+        "name": "SWEATER DUNCAN",
+        "price": 93,
+        "category": "Moda",
+        "image": "/featured-sweater.png"
+    },
+    {
+        "id": 4,
+        "name": "COLLAR HERITAGE",
+        "price": 37,
+        "category": "Accesorios",
+        "image": "/featured-collar.png"
+    },
+    {
+        "id": 5,
+        "name": "Portabolsas Winston",
+        "price": 45,
+        "category": "Paseo",
+        "image": "/accessories-product.png"
+    },
+    {
+        "id": 6,
+        "name": "Arnés Soft Touch",
+        "price": 55,
+        "category": "Paseo",
+        "image": "/featured-harness.png"
+    }
+]
